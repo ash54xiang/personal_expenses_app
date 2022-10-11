@@ -12,6 +12,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'RecordMe',
       home: MyHomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        accentColor: Colors.cyan,
+      ),
     );
   }
 }
