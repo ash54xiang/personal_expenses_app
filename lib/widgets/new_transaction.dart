@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '';
 
 class NewTransaction extends StatefulWidget {
   final Function addTransactionHandler;
@@ -21,13 +20,16 @@ class _NewTransactionState extends State<NewTransaction> {
     final enteredTitle = _titleController.text;
     final enteredAmount = _amountController.text;
 
-    if (enteredTitle.isEmpty || double.parse(enteredAmount) <= 0) {
+    if (enteredTitle.isEmpty ||
+        double.parse(enteredAmount) <= 0 ||
+        _selectedDate == null) {
       return;
     }
 
     widget.addTransactionHandler(
       enteredTitle,
       double.parse(enteredAmount),
+      _selectedDate,
     );
 
     Navigator.of(context).pop();
